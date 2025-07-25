@@ -1,0 +1,205 @@
+﻿Label,Name,IndicatorCategory,OHJPA-ActionTracks
+1.1,Percentage of land and sea area covered by biodiversity-inclusive spatial plans,headline,Action track 6
+1.b,"Number of countries using participatory, integrated and biodiversity-inclusive spatial planning and/or effective management processes addressing land- and sea-use change to bring the loss of areas of high biodiversity importance close to zero by 2030",binary,Action track 6
+1.CY.1,Proportion of transboundary basin area with an operational arrangement for water cooperation,complementary,Action track 6
+2.1,Area under restoration,headline,Action track 6
+2.CT.1,Proportion of land that is degraded over total land area,component,Action track 6
+2.CY.1,Global Ecosystem Restoration Index,complementary,Action track 6
+2.CY.2,Proportion of key biodiversity areas in favourable condition,complementary,Action track 6
+3.1,Coverage of protected areas and other effective area-based conservation measures,headline,Action track 6
+3.CT.1,Protected Area Connectedness Index,component,Action track 6
+3.CT.2,Species Protection Index,component,Action track 6
+3.CY.1,"Rate of protected area downgrading, downsizing and degazettement events",complementary,Action track 6
+3.CY.2,International Union for Conservation of Nature Green List of Protected and Conserved Areas Standard,complementary,Action track 6
+3.CY.3,Protected Area Isolation Index (PAI),complementary,Action track 6
+3.CY.4,Protected Areas Network metric,complementary,Action track 6
+3.CY.5,Number of protected areas that have completed a site-level assessment of governance and equity,complementary,Action track 6
+4.CT.1 ,Number of (a) plant and (b) animal genetic resources for food and agriculture secured in either medium- or long-term conservation facilities,component,Action track 2
+4.CT.2,Green Status of Species,component,
+4.CT.3,Human-wildlife conflict indicator,component,Action track 2
+4.CT.4,Proportion of local breeds classified as being at risk of extinction,component,
+4.CY.1,Species threat abatement and restoration metric,complementary,Action track 6
+4.CY.2,Number of island invasive alien species eradications,complementary,
+5.1,Proportion of fish stocks within biologically sustainable levels,headline,Action track 6
+5.b,Number of countries with legal instruments or other policy frameworks for regulating trade in wild species,binary,Action track 6
+5.CT.1,Red List Index (impacts of utilization) for utilized species,component,
+5.CT.2,"Degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",component,Action track 6
+5.CY.1,Inland fisheries threat indicator,complementary,Action track 6
+5.CY.2,Red List Index (for internationally traded species),complementary,Action track 6
+5.CY.3 ,Red List Index (impacts of fisheries),complementary,Action track 6
+5.CY.4,Marine Stewardship Council Fish Certified Catch,complementary,Action track 6
+5.CY.5,Total catch of cetaceans under the International Convention for the Regulation of Whaling,complementary,Action track 4
+5.CY.6,By-catch of vulnerable and non-target species,complementary,Action track 6
+5.CY.7,Number of Marine Stewardship Council chain of custody certification holders by distribution country,complementary,Action track 6
+5.CY.8,"Biodiversity-based trade, growth rates",complementary,Action track 2
+6.1,Rate of invasive alien species establishment,headline,
+6.b,"Number of countries adopting relevant regulations, processes and measures to reduce the impact of invasive alien species",binary,
+6.CY.1,Red List Index (impacts of invasive alien species),complementary,
+7.1,Index of coastal eutrophication,headline,
+7.2,Pesticide environment concentration and/or aggregated total applied toxicity,headline,Action track 6
+7.CT.1,Cropland nutrient budget,component,Action track 6
+7.CT.2,Proportion of domestic and industrial wastewater flows safely treated,component,Action track 3
+7.CT.3,Plastic debris density,component,Action track 6
+7.CT.4,Red List Index (impact of pollution),component,Action track 6
+7.CY.1,Trends in Loss of Reactive Nitrogen to the Environment,complementary,Action track 6
+7.CY.2,Trends in Nitrogen Deposition,complementary,Action track 6
+7.CY.3,"Proportion of municipal solid waste collected and managed in controlled facilities out of total municipal waste generated, by cities",complementary,Action track 3
+7.CY.4,Hazardous waste generation per capita,complementary,Action track 3
+7.CY.5,"Trends in the amount of litter, including microplastics, in the water column and on the seafloor",complementary,Action track 3
+7.CY.6 ,Pesticide use per area of cropland,complementary,Action track 6
+8.b,Number of countries with policies to minimize the impact of climate change and ocean acidification on biodiversity and to minimize negative and foster positive impacts of climate action on biodiversity,binary,Action track 6
+8.CT.1,Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015–2030,component,Action track 6
+8.CT.2,Bioclimatic Ecosystem Resilience Index (BERI),component,Action track 6
+8.CY.1,Above-ground biomass stock in forest (tons/ha),complementary,Action track 6
+8.CY.2,"National greenhouse gas inventories from land use, land-use change and forestry",complementary,Action track 6
+8.CY.3,Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies,complementary,Action track 6
+8.CY.4,Average marine acidity (pH) measured at agreed suite of representative sampling stations,complementary,Action track 6
+9.1,Benefits from the sustainable use of wild species,headline,Action track 2
+9.2,Percentage of the population in traditional occupations,headline,Action track 1
+9.b,"Number or countries with policies to manage the use of wild species sustainably, providing social, economic and environmental benefits for people, and to protect and encourage customary sustainable use by indigenous peoples and local communities",binary,Action track 6
+9.CT.1,Red List Index (species used for food and medicine),component,Action track 1
+9.CY.1,Spawning stock biomass (related to commercially exploited species),complementary,Action track 4
+9.CY.2,Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size,complementary,Action track 4
+9.CY.3 ,Red List Index (impact of utilization),complementary,Action track 4
+10.1,Proportion of agricultural area under productive and sustainable agriculture,headline,Action track 6
+10.2,Progress towards sustainable forest management,headline,Action track 6
+10.CT.1,"Average income of small-scale food producers, by sex and indigenous status ",component,Action track 3
+10.CY.1,Agrobiodiversity Index,complementary,Action track 6
+10.CY.2,Soil organic carbon stocks,complementary,
+10.CY.3,Red List Index (forest specialist species),complementary,Action track 6
+10.CY.4,Area of forest under sustainable management: total forest management certification by the Forest Stewardship Council and the Programme for the Endorsement of Forest Certification,complementary,Action track 6
+11.CT.1 ,Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities ,component,Action track 6
+11.CT.2,Proportion of bodies of water with good ambient water quality ,component,Action track 3
+11.CT.3,Level of water stress: freshwater withdrawal as a proportion of available freshwater resources,component,Action track 6
+11.CY.1,Air emission accounts,complementary,Action track 6
+11.CY.2 ,Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management,complementary,Action track 6
+11.CY.3,Proportion of population using safely managed drinking water services,complementary,Action track 6
+11.CY.4,"Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services) ",complementary,Action track 6
+11.CY.5 ,"Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population ",complementary,Action track 6
+12.1,Average share of the built-up area of cities that is green or blue space for public use for all,headline,Action track 3
+12.b,Number of countries with biodiversity-inclusive urban planning referring to green or blue urban spaces,binary,Action track 3
+12.CT.1,Singapore Index on Cities’ Biodiversity,component,Action track 3
+13.b,"Number of countries that have taken effective legal, policy, administrative and capacity-building measures at all levels, as appropriate, to ensure the fair and equitable sharing of benefits from the utilization of genetic resources and from digital sequence information on genetic resources, as well as traditional knowledge associated with genetic resources",binary,Action track 2
+13.CT.1,Total number of internationally recognized certificates published on the Access and Benefit-sharing Clearing-House,component,Action track 2
+13.CY.1,Total number of transfers of crop material from the Multilateral System of the International Treaty on Plant Genetic Resources for Food and Agriculture received in a country,complementary,Action track 2
+14.b,"Number of countries integrating biodiversity and its multiple values into policies, regulations, planning, development processes, poverty eradication strategies and, as appropriate, national accounts, within and across all levels and across all sectors, and progressively aligning all relevant public and private activities and fiscal and financial flows with the goals and targets of the Framework",binary,Action track 6
+14.CT.1,"Integration of biodiversity into national accounting and reporting systems, defined as implementation of the System of Environmental-Economic Accounting",component,Action track 2
+15.1,"Number of companies disclosing their biodiversity-related risks, dependencies and impacts",headline,Action track 6
+15.b,"Number of countries with legal, administrative or policy measures aimed at encouraging and enabling business and financial institutions, and in particular for large and transnational companies and financial institutions, to progressively reduce their negative impacts on biodiversity, increase their positive impacts, reduce their biodiversity-related risks and promote actions to ensure sustainable patterns of production",binary,Action track 6
+15.CT.1,Number of companies publishing sustainability reports,component,Action track 6
+15.CY.1,Number of organizations within the country that have signalled an intent to start adopting the recommendations of the Taskforce on Nature-related Financial Disclosures,complementary,Action track 6
+16.b,"Number of countries developing, adopting or implementing policy instruments aimed at encouraging and enabling people to make sustainable consumption choices.",binary,
+16.CT.1,Food waste index ,component,
+16.CT.2,"Material footprint, material footprint per capita, and material footprint per GDP",component,
+16.CT.3,Ecological footprint ,component,Action track 6
+16.CY.1,Extent to which (i) global citizenship education and (ii) education for sustainable development are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education and (d) student assessment,complementary,Action track 6
+16.CY.2,"National recycling rate, tons of material recycled",complementary,Action track 6
+16.CY.3,Human Appropriation of Net Primary Production,complementary,
+16.CY.4,CO2 emission per unit of value added,complementary,Action track 6
+16.CY.5,Change in water-use efficiency over time,complementary,Action track 6
+16.CY.6,Indicators from the Life Cycle Impact Assessment Programme,complementary,
+16.CY.7,Poverty level,complementary,Action track 6
+17.b,Number of countries that have taken action to implement biosafety measures as set out in Article 8(g) of the Convention and measures for the handling of biotechnology and the distribution of its benefits as set out in Article 19,binary,Action track 2
+17.CY.1,Indicators related to the Cartagena Protocol on Biosafety,complementary,Action track 2
+18.1,Positive incentives in place to promote biodiversity conservation and sustainable use,headline,Action track 6
+18.2,Value of subsidies and other incentives harmful to biodiversity,headline,
+18.CT.1,Revenue generated by biodiversity-relevant tradable permits (if auctioned),component,
+18.CT.2,Monetary value of payments for ecosystem services,component,
+18.CT.3,Monetary value of biodiversity offsets,component,
+20.b,"Number of countries that have taken significant action to strengthen capacity-building and development and access to and transfer of technology, and to promote the development of and access to innovation and technical and scientific cooperation",binary,Action track 2
+20.CT.1,"Total amount of funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies",component,Action track 2
+20.CY.1,Researchers (in full-time equivalent) per million inhabitants,complementary,Action track 1
+20.CY.2,Global imports of information and communications technology goods as presented by bilateral trade flows by information and communications technology goods category,complementary,Action track 2
+21.1,Indicator on biodiversity information for monitoring the Kunming-Montreal Global Biodiversity Framework,headline,Action track 6
+21.CT.1,Species Information Index,component,Action track 6
+21.CT.2,Participation of indigenous peoples and local communities in decisionmaking related to the implementation of the Convention at all levels,component,Action track 6
+21.CT.3,Index of Linguistic Diversity,component,
+21.CY.1,Growth in number of records and species in the Living Planet Index database,complementary,Action track 6
+21.CY.2,Growth in species occurrence records accessible through the Global Biodiversity Information Facility,complementary,Action track 6
+21.CY.3,Growth in marine species occurrence records accessible through the Ocean Biodiversity Information System,complementary,Action track 6
+21.CY.4,Proportion of known species assessed through the International Union for Conservation of Nature Red List of Threatened Species,complementary,Action track 6
+21.CY.5,Number of assessments on the International Union for Conservation of Nature Red List of Threatened Species,complementary,Action track 6
+21.CY.6,World Association of Zoos and Aquariums bioliteracy survey (biodiversity literacy in global zoo and aquarium visitors),complementary,Action track 6
+22.1,Land-use change and land tenure in the traditional territories of indigenous peoples and local communities,headline,Action track 6
+22.b,"Number of countries taking action towards the full, equitable, inclusive, effective and gender-responsive representation and participation in decision-making and access to justice and information related to biodiversity by indigenous peoples and local communities, respecting their cultures and their rights over lands, territories, resources and traditional knowledge, as well as by women and girls, children and youth, and persons with disabilities, and the full protection of environmental human rights defenders",binary,Action track 1
+22.CT.1,"Proportion of total adult population with secure tenure rights to land, (a) with legally recognized documentation, and (b) who perceive their rights to land as secure, by sex and type of tenure",component,Action track 6
+22.CT.2,Number of verified cases of killings and other attacks against environmental human rights defenders in the previous 12 months,component,
+22.CY.1,"Proportions of positions in national and local institutions, including (a) the legislatures; (b) the public service; and (c) the judiciary, compared to national distributions, by sex, age, persons with disabilities and population groups",complementary,Action track 1
+22.CY.2,Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment,complementary,Action track 2
+22.CY.3,"(a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure",complementary,Action track 6
+22.CY.4,Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control,complementary,Action track 6
+22.CY.5,"Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group",complementary,
+22.CY.6,"Area covered by the reported territories and areas governed, managed and conserved by custodian indigenous peoples and local communities (ICCAs—territories of life)",complementary,Action track 6
+23.b,"Number of countries with legal, administrative or policy frameworks, inter alia, to implement the Gender Plan of Action (2023–2030), to ensure that all women and girls have equal opportunity and capacity to contribute to the three objectives of the Convention, including by ensuring women’s equal rights and access to land and natural resources",binary,Action track 2
+23.CT.1,Proportion of seats held by women in (a) national parliaments and (b) local governments ,component,Action track 2
+23.CT.2 ,Indicator on national implementation of the Gender Plan of Action (2023-2030),component,Action track 2
+A.1,Red List of Ecosystems,headline,Action track 6
+A.2 ,Extent of natural ecosystems,headline,Action track 6
+A.3,Red List Index,headline,
+A.4,The proportion of populations within species with an effective population size greater than 500,headline,
+A.CT.1,Ecosystem Intactness Index,component,Action track 6
+A.CT.2,Ecosystem Integrity Index ,component,Action track 6
+A.CT.3,Species habitat Index ,component,Action track 6
+A.CT.4,Biodiversity Habitat Index ,component,Action track 6
+A.CT.5,Biodiversity Intactness Index,component,Action track 6
+A.CT.6,Protected Connected index,component,Action track 6
+A.CT.7,Protected Area Representativeness and Connectedness Indices,component,Action track 6
+A.CT.8,Number of extinctions averted,component,Action track 6
+A.CT.9,Evolutionarily Distinct and Globally Endangered Index,component,Action track 6
+A.CT.10,Living Planet Index,component,Action track 6
+A.CT.11,Wild bird index,component,Action track 6
+A.CY.1,Forest area as a proportion of total land area,complementary,Action track 6
+A.CY.2,Rate of tree cover loss,complementary,Action track 6
+A.CY.3,Mountain Green Cover Index,complementary,Action track 6
+A.CY.4,Continuous Global Mangrove Forest Cover,complementary,Action track 6
+A.CY.5,Mangrove forest fragmentation,complementary,Action track 6
+A.CY.6,Mangrove extent,complementary,Action track 6
+A.CY.7,Global salt marsh extent,complementary,Action track 6
+A.CY.8,Wetland Extent Trends Index,complementary,Action track 6
+A.CY.9,Forest Fragmentation Index,complementary,Action track 6
+A.CY.10,Forest Landscape Integrity Index,complementary,Action track 6
+A.CY.11,Global Vegetation Health Products,complementary,Action track 6
+A.CY.12,Relative Magnitude of Fragmentation (RMF),complementary,Action track 6
+A.CY.13,Ocean Health Index,complementary,Action track 6
+A.CY.14,Extent of physical damage to predominant seafloor habitats,complementary,Action track 6
+A.CY.15,River Fragmentation Index,complementary,Action track 6
+A.CY.16,Mean Species Abundance (MSA),complementary,
+A.CY.17,Changes in plankton biomass and abundance,complementary,
+A.CY.18,Comprehensiveness of conservation of socioeconomically and culturally valuable species,complementary,Action track 6
+A.CY.19,Red List Index (wild relatives of domesticated animals),complementary,Action track 2
+A.CY.20,Species Status Information Index,complementary,Action track 6
+A.CY.21,Expected Loss of Phylogenetic diversity,complementary,
+A.CY.22,Proportion of populations maintained within species,complementary,
+B.1,Services provided by ecosystems,headline,Action track 6
+B.b,"Number of countries with policies or actions for implementing and monitoring the sustainable use of biodiversity and the maintenance and enhancement of nature’s contributions to people, including ecosystem functions and services",binary,Action track 6
+B.CT.1,Red List Index for utilized species,component,Action track 2
+B.CT.2,Living Planet Index for utilized species,component,Action track 2
+B.CT.3,Total value of ecosystems services in monetary units,component,
+B.CY.1,Red List Index (pollinating species),complementary,Action track 2
+B.CY.2,Forestry production and trade (wood fuel),complementary,Action track 6
+B.CY.3," United Nations Educational, Scientific and Cultural Organization culture 2030 indicators",complementary,Action track 6
+C.1,Monetary benefits received in accordance with applicable internationally agreed Access and Benefit-sharing instruments,headline,Action track 2
+C.2,Non-monetary benefits arising from applicable international Access and Benefit-sharing instruments,headline,Action track 2
+C.CY.1,Number of users that have provided information relevant to the utilization of genetic resources to designated checkpoints,complementary,Action track 2
+C.CY.2,Number of checkpoint communiqués published on the Access and Benefit-sharing Clearing-House,complementary,Action track 2
+C.CY.3,Total number of internationally recognized certificates of compliance for non-commercial purposes in the Access and Benefit-sharing Clearing-House ,complementary,Action track 2
+D.1,"International public funding, including official development assistance for conservation and sustainable use of biodiversity and ecosystems",headline,Action track 1
+D.2,Domestic public funding on conservation and sustainable use of biodiversity and ecosystems,headline,Action track 1
+D.3,Private funding (domestic and international) on conservation and sustainable use of biodiversity and ecosystems,headline,Action track 1
+D.CY.1,Number of researchers per population,complementary,Action track 1
+D.CY.2,Number of joint scientific papers published in the Ocean Biodiversity Information System by sector,complementary,Action track 6
+D.CY.3,Proportion of total research budget allocated to research in the field of marine technology,complementary,Action track 6
+D.CY.4,Volume of official development assistance flows for scholarships by sector and type of study,complementary,Action track 1
+D.CY.5,Global imports of information and communications technology goods by category,complementary,Action track 2
+D.CY.6 ,International funding targeted at indigenous peoples and local communities within biodiversity-related activities,complementary,Action track 6
+D.CY.7,International funding targeted at youth within biodiversity-related activities,complementary,
+D.CY.8,International funding targeted at gender equality and women’s rights policy objectives within biodiversity-related activities,complementary,Action track 2
+D.CY.9,Monetary value of the annual budget for biodiversity from total national budget,complementary,
+D.CY.10 ,Percentage of annual biodiversity expenditure in total national government budgets,complementary,
+D.CY.11,Domestic funding targeted at indigenous peoples and local communities within biodiversity-related activities,complementary,Action track 6
+D.CY.12,Domestic funding targeted at youth within biodiversity-related activities,complementary,
+D.CY.13,Domestic funding targeted at gender equality and women’s rights policy objectives within biodiversity-related activities,complementary,Action track 2
+D.CY.14,Private funding targeted at indigenous peoples and local communities within biodiversity-related activities,complementary,Action track 6
+D.CY.15,Private funding targeted at youth within biodiversity-related activities,complementary,
+D.CY.16,Private funding targeted at gender equality and women’s rights policy objectives within biodiversity-related activities,complementary,Action track 2
+D.CY.17,"Private funding mobilized for indigenous peoples and local communities, women and youth",complementary,Action track 1
