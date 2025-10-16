@@ -145,6 +145,35 @@ df_clean %>%
   count() %>% 
   mutate(prop = n / num_headbin * 100)
 
+# proportion of indicators that can be used to monitor at least one AT, in each category
+num_cat <- df_clean %>% 
+  group_by(category) %>% 
+  count() %>% 
+  rename("total" = n)
+
+df_clean %>% 
+  filter(use_AT1 == "usable" | 
+           use_AT2 == "usable" |
+           use_AT3 == "usable" | 
+           use_AT4 == "usable" |
+           use_AT5 == "usable" |
+           use_AT6 == "usable") %>% 
+  group_by(category) %>% 
+  count() %>% 
+  full_join(num_cat) %>% 
+  mutate(prop = n / total * 100)
+
+# same thing, but without AT6
+df_clean %>% 
+  filter(use_AT1 == "usable" | 
+           use_AT2 == "usable" |
+           use_AT3 == "usable" | 
+           use_AT4 == "usable" |
+           use_AT5 == "usable") %>% 
+  group_by(category) %>% 
+  count() %>% 
+  full_join(num_cat) %>% 
+  mutate(prop = n / total * 100)
 
 
 
