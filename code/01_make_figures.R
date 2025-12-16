@@ -4,6 +4,7 @@ library(ggalluvial)
 library(ggplot2)
 library(ggsankey)
 library(readr)
+library(rphylopic)
 library(tidyr)
 
 #### read data ####
@@ -182,6 +183,31 @@ df_clean %>%
 # One Health colors
 colors <- c("#F7921C", "#EC008B", "#90268E", "#1976BC", "#36B449", "#D6DF22", "grey")
 
+## phylopics
+# Homo sapiens (Action track 1)
+AT1_uuid <- get_uuid(name = "Homo sapiens", n=42)
+AT1_img <- get_phylopic(uuid = AT1_uuid[37])
+
+# Rhinolophus hipposideros (Action track 2)
+AT2_uuid <- get_uuid(name = "Rhinolophus hipposideros")
+AT2_img <- get_phylopic(uuid = AT2_uuid)
+
+# Aedes aegypti (Action track 3)
+AT3_uuid <- get_uuid(name = "Aedes aegypti")
+AT3_img <- get_phylopic(uuid = AT3_uuid)
+
+# Gallus gallus domesticus (Action track 4)
+AT4_uuid <- get_uuid(name = "Gallus gallus domesticus")
+AT4_img <- get_phylopic(uuid = AT4_uuid)
+
+# Escherichia coli (Action track 5)
+AT5_uuid <- get_uuid(name = "Escherichia coli")
+AT5_img <- get_phylopic(uuid = AT5_uuid)
+
+# Carpobrotus edulis
+AT6_uuid <- get_uuid(name = "Carpobrotus edulis")
+AT6_img <- get_phylopic(uuid = AT6_uuid)
+
 
 ## analyse the usability of indicators for monitoring OH actions, grouped by indicator categories 
 
@@ -276,13 +302,23 @@ ggplot() +
   scale_y_continuous(limits = c(0,210), expand = c(0, 0)) +
   scale_fill_manual(values = colors) +
   theme_bw() +
-  theme(axis.title.x=element_blank(),
-        axis.title.y=element_blank(),
+  theme(axis.title.y=element_blank(),
+        axis.title.x = element_text(size = 10, face = "bold"),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         axis.line = element_line(colour = "black"),
-        legend.position = "none")
+        legend.position = "none") +
+  ylab("Number of indicators") +
+  add_phylopic(img = AT1_img, x = 6, y = 115, ysize = 0.7) +
+  add_phylopic(img = AT2_img, x = 5, y = 110, ysize = 0.7) +
+  add_phylopic(img = AT3_img, x = 4, y = 85, ysize = 0.5) +
+  add_phylopic(img = AT4_img, x = 3, y = 123, ysize = 0.7) +
+  add_phylopic(img = AT5_img, x = 2, y = 50, ysize = 0.6) +
+  add_phylopic(img = AT6_img, x = 1, y = 173, ysize = 0.7) +
+  annotate("text", x = c(6, 5, 4, 3, 2, 1), 
+                  y = c(130, 125, 103, 138, 65, 188),
+                label = c("53%", "51%", "33%", "55%", "20%", "79%"))
 
 ggsave("figures/bars_total.png",
        width = 8, height = 6, dpi = 800, 
