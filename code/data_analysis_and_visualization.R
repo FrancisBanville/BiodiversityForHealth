@@ -214,6 +214,28 @@ df_simple %>%
 
 
 
+# number of indicators that can be used either directly or after adaptation for each action in the OH JPA
+
+# actions in the first action track
+table(df_clean$action_AT1, df_clean$use_AT1)
+
+# actions in the second action track
+table(df_clean$action_AT2, df_clean$use_AT2)
+
+# actions in the third action track
+table(df_clean$action_AT3, df_clean$use_AT3)
+
+# actions in the fourth action track
+table(df_clean$action_AT4, df_clean$use_AT4)
+
+# actions in the fifth action track
+table(df_clean$action_AT5, df_clean$use_AT5)
+
+# actions in the sixth action track
+table(df_clean$action_AT6, df_clean$use_AT6)
+
+
+
 #### prepare figures ####
 
 # One Health colors
