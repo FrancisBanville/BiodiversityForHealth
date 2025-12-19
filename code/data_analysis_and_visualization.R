@@ -352,9 +352,7 @@ ggplot() +
   # add number of indicators connected to human, animal, plant and environmental health
   geom_bar(data = df_total_link, aes(y=n, x=group, fill=link), alpha = 0.8,
            position="stack", stat="identity") +
-  
-  # flip axes
-  coord_flip() +
+
   
   # format y label
   scale_y_continuous(limits = c(0,210), expand = c(0, 0)) +
@@ -368,8 +366,8 @@ ggplot() +
   
   # change theme
   theme_bw() +
-  theme(axis.title.y = element_blank(),
-        axis.title.x = element_text(size = 12, face = "bold"),
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 12, face = "bold"),
         axis.text.x = element_text(size = 10),
         axis.text.y = element_text(size = 10),
         legend.text = element_text(size=10),
