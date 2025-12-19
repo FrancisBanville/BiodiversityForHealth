@@ -88,10 +88,25 @@ df_clean <- df_raw %>%
                                       "Species management",
                                       "Urban areas",
                                       "none assigned")),
-         link_humans = factor(link_humans),
-         link_animals = factor(link_animals),
-         link_plants = factor(link_plants),
-         link_environment = factor(link_environment),
+         
+         GAP = fct_recode(GAP, "No category" = "none assigned"),
+  
+         link_humans = factor(link_humans, levels = c("not connected",
+                                                      "potentially connected",
+                                                      "indirectly connected",
+                                                      "directly connected")),
+         link_animals = factor(link_animals, levels = c("not connected",
+                                                        "potentially connected",
+                                                        "indirectly connected",
+                                                        "directly connected")),
+         link_plants = factor(link_plants, levels = c("not connected",
+                                                      "potentially connected",
+                                                      "indirectly connected",
+                                                      "directly connected")),
+         link_environment = factor(link_environment, levels = c("not connected",
+                                                                "potentially connected",
+                                                                "indirectly connected",
+                                                                "directly connected")),
          use_AT1 = factor(use_AT1),
          use_AT2 = factor(use_AT2),
          use_AT3 = factor(use_AT3),
@@ -103,8 +118,8 @@ df_clean <- df_raw %>%
          action_AT3 = factor(action_AT3),
          action_AT4 = factor(action_AT4),
          action_AT5 = factor(action_AT5),
-         action_AT6 = factor(action_AT6))
-
+         action_AT6 = factor(action_AT6)) 
+  
 
 # simplify dataset 
 df_simple <- df_clean %>% 
@@ -144,7 +159,7 @@ prop_ind_health <- num_ind_health / num_ind
 prop_ind_health
 
 
-# proportion of indicators that can be used to monitor each action track (all indicators)
+# proportion of indicators that can be used (directly or after adaptation) to monitor each action track (all indicators)
 df_simple %>% 
   select(use_AT1, use_AT2, use_AT3, use_AT4, use_AT5, use_AT6) %>% 
   pivot_longer(everything()) %>% 
@@ -153,7 +168,7 @@ df_simple %>%
   mutate(prop = n / num_ind * 100)
   
 
-# proportion of indicators that can be used to monitor each action track (headline and binary indicators only)
+# proportion of indicators that can be used (directly or after adaptation) to monitor each action track (headline and binary indicators only)
 num_headbin <- df_simple %>% 
   filter(category %in% c("headline", "binary")) %>% 
   count()
@@ -167,7 +182,7 @@ df_simple %>%
   mutate(prop = n / num_headbin * 100)
 
 
-# proportion of indicators that can be used to monitor at least one AT, in each category
+# proportion of indicators that can be used (directly or after adaptation) to monitor at least one AT, in each category
 num_cat <- df_simple %>% 
   group_by(category) %>% 
   count() %>% 
@@ -230,6 +245,39 @@ AT6_uuid <- get_uuid(name = "Carpobrotus edulis")
 AT6_img <- get_phylopic(uuid = AT6_uuid)
 
 
+# prepare dataset to analyse the links between indicators and human, animal, plant, and environmental health
+
+df_long_link <- df_clean %>% 
+  select(link_humans,
+         link_animals,
+         link_plants,
+         link_environment) %>% 
+  
+  # long format needed since indicators are associated with multiple groups
+  pivot_longer(cols = everything(),
+               names_to = "group",
+               values_to = "link") %>% 
+  
+  # rename groups
+  mutate(group = fct_recode(group, 
+                                   "Human health" = "link_humans",
+                                   "Animal health" = "link_animals",
+                                   "Plant health" = "link_plants",
+                                   "Environmental health" = "link_environment")) %>% 
+  
+  mutate(link = fct_recode(link, 
+                                "Not connected" = "not connected",
+                                "Potentially connected" = "potentially connected",
+                                "Indirectly connected" = "indirectly connected",
+                                "Directly connected" = "directly connected")) %>% 
+
+  # reorder groups
+  mutate(group = factor(group, levels = c("Human health",
+                                        "Animal health", 
+                                        "Plant health",
+                                        "Environmental health")))
+
+
 # prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by indicator categories 
 
 df_long_cat <- df_simple %>% 
@@ -248,12 +296,19 @@ df_long_cat <- df_simple %>%
   
   # rename action tracks
   mutate(action_track = fct_recode(action_track, 
-                                   "action track 1" = "use_AT1",
-                                   "action track 2" = "use_AT2",
-                                   "action track 3" = "use_AT3",
-                                   "action track 4" = "use_AT4",
-                                   "action track 5" = "use_AT5",
-                                   "action track 6" = "use_AT6")) 
+                                   "Action track 1" = "use_AT1",
+                                   "Action track 2" = "use_AT2",
+                                   "Action track 3" = "use_AT3",
+                                   "Action track 4" = "use_AT4",
+                                   "Action track 5" = "use_AT5",
+                                   "Action track 6" = "use_AT6")) %>% 
+  
+  # rename categories
+  mutate(category = fct_recode(category, 
+                                   "Headline indicators" = "headline",
+                                   "Binary indicators" = "binary",
+                                   "Component indicators" = "component",
+                                   "Complementary indicators" = "complementary"))
 
 
 # prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by GAP categories 
@@ -274,15 +329,65 @@ df_long_GAP <- df_simple %>%
   
   # rename action tracks
   mutate(action_track = fct_recode(action_track, 
-                                   "action track 1" = "use_AT1",
-                                   "action track 2" = "use_AT2",
-                                   "action track 3" = "use_AT3",
-                                   "action track 4" = "use_AT4",
-                                   "action track 5" = "use_AT5",
-                                   "action track 6" = "use_AT6")) 
+                                   "Action track 1" = "use_AT1",
+                                   "Action track 2" = "use_AT2",
+                                   "Action track 3" = "use_AT3",
+                                   "Action track 4" = "use_AT4",
+                                   "Action track 5" = "use_AT5",
+                                   "Action track 6" = "use_AT6")) 
+
 
 
 #### make figures ####
+
+#### Figure: bar plot (number of indicators linked with human, animal, plant, and environmental health)
+
+df_total_link <- df_long_link %>% 
+  group_by(group, link) %>% 
+  count()
+
+
+ggplot() + 
+  
+  # add number of indicators connected to human, animal, plant and environmental health
+  geom_bar(data = df_total_link, aes(y=n, x=group, fill=link), alpha = 0.8,
+           position="stack", stat="identity") +
+  
+  # flip axes
+  coord_flip() +
+  
+  # format y label
+  scale_y_continuous(limits = c(0,210), expand = c(0, 0)) +
+  
+  # format x label 
+  scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 10),
+                   limits = rev(levels(df_total_link$group))) +
+  
+  # change color
+  scale_fill_brewer(palette = "Spectral") +
+  
+  # change theme
+  theme_bw() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 12, face = "bold"),
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 10),
+        legend.text = element_text(size=10),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.title = element_blank()) +
+  
+  # rename y axis
+  ylab("Number of indicators")
+ 
+
+# save figure
+ggsave("figures/link_health.png",
+       width = 8, height = 6, dpi = 800, 
+       units = "in", device='png')
+
 
 
 #### Figure: bar plot (proportion of usable indicators per action track)
