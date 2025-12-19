@@ -1,8 +1,6 @@
 library(dplyr)
 library(forcats)
-library(ggalluvial)
 library(ggplot2)
-library(ggsankey)
 library(readr)
 library(rphylopic)
 library(tidyr)
