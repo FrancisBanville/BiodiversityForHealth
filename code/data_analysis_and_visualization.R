@@ -70,10 +70,24 @@ df_clean <- df_raw %>%
          -evaluator,
          -flag,
          -comments) %>% 
-  
-  # change variable type
+
+    # change variable type
   mutate(category = factor(category, levels = c("headline", "binary", "component", "complementary")),
-         GAP = factor(GAP),
+         GAP = factor(GAP, levels = c("Access and benefit-sharing",
+                                      "Agriculture, aquaculture, fisheries and forestry",
+                                      "Biosafety and biotechnology",
+                                      "Climate change",
+                                      "Consumption",
+                                      "Invasive alien species",
+                                      "Knowledge and engagement of people",
+                                      "Land and sea use",
+                                      "Mainstreaming",
+                                      "Means of implementation",
+                                      "Nature’s contributions to people",
+                                      "Pollution",
+                                      "Species management",
+                                      "Urban areas",
+                                      "none assigned")),
          link_humans = factor(link_humans),
          link_animals = factor(link_animals),
          link_plants = factor(link_plants),
@@ -218,7 +232,7 @@ AT6_img <- get_phylopic(uuid = AT6_uuid)
 
 # prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by indicator categories 
 
-df_long <- df_simple %>% 
+df_long_cat <- df_simple %>% 
   select(category,
          use_AT1,
          use_AT2,
@@ -242,6 +256,31 @@ df_long <- df_simple %>%
                                    "action track 6" = "use_AT6")) 
 
 
+# prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by GAP categories 
+
+df_long_GAP <- df_simple %>% 
+  select(GAP,
+         use_AT1,
+         use_AT2,
+         use_AT3,
+         use_AT4,
+         use_AT5,
+         use_AT6) %>% 
+  
+  # long format needed since indicators are associated with multiple action tracks
+  pivot_longer(cols = !GAP,
+               names_to = "action_track",
+               values_to = "usability") %>% 
+  
+  # rename action tracks
+  mutate(action_track = fct_recode(action_track, 
+                                   "action track 1" = "use_AT1",
+                                   "action track 2" = "use_AT2",
+                                   "action track 3" = "use_AT3",
+                                   "action track 4" = "use_AT4",
+                                   "action track 5" = "use_AT5",
+                                   "action track 6" = "use_AT6")) 
+
 
 #### make figures ####
 
@@ -249,12 +288,12 @@ df_long <- df_simple %>%
 #### Figure: bar plot (proportion of usable indicators per action track)
 
 # total number of indicators
-df_total_all <- df_long %>% 
+df_total_all <- df_long_cat %>% 
   group_by(action_track) %>% 
   count()
 
 # total number of usable indicators for each action track
-df_total_usable <- df_long %>%  
+df_total_usable <- df_long_cat %>%  
   filter(usability == "usable") %>% 
   group_by(action_track) %>% 
   count()
@@ -316,7 +355,7 @@ ggplot() +
            label = paste0(round(df_prop_usable$prop, 0), "%"))
 
 # save figure
-ggsave("figures/bars_total.png",
+ggsave("figures/usability_all.png",
        width = 8, height = 6, dpi = 800, 
        units = "in", device='png')
 
@@ -326,12 +365,12 @@ ggsave("figures/bars_total.png",
 #### Figure: bar plot (proportion of usable indicators per action track and category)
 
 # number of indicators in each category
-df_total <- df_long %>%  
+df_total_cat <- df_long_cat %>%  
   group_by(category, action_track) %>% 
   count()
 
 # number of usable indicators in each category
-df_usable <- df_long %>%  
+df_usable_cat <- df_long_cat %>%  
   filter(usability == "usable") %>% 
   group_by(category, action_track) %>% 
   count()
@@ -340,11 +379,11 @@ df_usable <- df_long %>%
 ggplot() + 
   
   # add grey bars representing the total number of indicators
-  geom_bar(data = df_total, aes(y=n, x=action_track), fill = "grey", alpha = 0.6,
+  geom_bar(data = df_total_cat, aes(y=n, x=action_track), fill = "grey", alpha = 0.6,
            position="stack", stat="identity") +
   
   # add color bars representing the number of usable indicators for each action track
-  geom_bar(data = df_usable, aes(fill=action_track, y=n, x=action_track), 
+  geom_bar(data = df_usable_cat, aes(fill=action_track, y=n, x=action_track), 
            position="stack", stat="identity") +
   
   # add icons
@@ -382,7 +421,73 @@ ggplot() +
   ylab("Number of indicators")
 
 
-ggsave("figures/bars_all.png",
+ggsave("figures/usability_categories.png",
+       width = 8, height = 6, dpi = 800, 
+       units = "in", device='png')
+
+
+
+
+#### Figure: bar plot (proportion of usable indicators per action track and GAP category)
+
+# number of indicators in each category
+df_total_GAP <- df_long_GAP %>%  
+  group_by(GAP, action_track) %>% 
+  count()
+
+# number of usable indicators in each category
+df_usable_GAP <- df_long_GAP %>%  
+  filter(usability == "usable") %>% 
+  group_by(GAP, action_track) %>% 
+  count()
+
+
+ggplot() + 
+  
+  # add grey bars representing the total number of indicators
+  geom_bar(data = df_total_GAP, aes(y=n, x=action_track), fill = "grey", alpha = 0.6,
+           position="stack", stat="identity") +
+  
+  # add color bars representing the number of usable indicators for each action track
+  geom_bar(data = df_usable_GAP, aes(fill=action_track, y=n, x=action_track), 
+           position="stack", stat="identity") +
+  
+  # add icons
+  add_phylopic(img = AT1_img, x = 1, y = 8, ysize = 12) +
+  add_phylopic(img = AT2_img, x = 2, y = 8, ysize = 12) +
+  add_phylopic(img = AT3_img, x = 3, y = 8, ysize = 7) +
+  add_phylopic(img = AT4_img, x = 4, y = 8, ysize = 12) +
+  add_phylopic(img = AT5_img, x = 5, y = 8, ysize = 10) +
+  add_phylopic(img = AT6_img, x = 6, y = 8, ysize = 12) +
+  
+  # split by GAP category
+  facet_wrap(~GAP, nrow = 5, ncol = 3) +
+  
+  # format x label
+  scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 10)) +
+  
+  # format y label 
+  scale_y_continuous(limits = c(0,55), expand = c(0, 0)) +
+  
+  # use One Health colors
+  scale_fill_manual(values = colors) +
+  
+  # change theme
+  theme_bw() +
+  theme(axis.title.x=element_blank(),
+        axis.title.y=element_text(size = 10, face = "bold"),
+        axis.text.x = element_text(size = 8),
+        axis.text.y = element_text(size = 8),
+        strip.text.x = element_text(size = 8),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  
+  # rename y axis
+  ylab("Number of indicators")
+
+
+ggsave("figures/usability_GAP.png",
        width = 8, height = 6, dpi = 800, 
        units = "in", device='png')
 
