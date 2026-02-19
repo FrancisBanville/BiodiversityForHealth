@@ -33,6 +33,14 @@ recode_uses = function(var) {
              "usable" = "directly usable")
 }
 
+# used to generate scores
+recode_uses_scores = function(var) {
+  as.numeric(as.character(fct_recode(var, 
+             "0" = "not usable",
+             "1" = "usable after adaptation",
+             "2" = "directly usable")))
+}
+
 
 # clean dataset
 df_clean <- df_raw %>%
@@ -64,8 +72,7 @@ df_clean <- df_raw %>%
          action_AT6 = AT6_environment_action) %>% 
 
   # remove unused variables
-  select(-label,
-         -name,
+  select(-name,
          -target,
          -evaluator,
          -flag,
@@ -121,6 +128,35 @@ df_clean <- df_raw %>%
          action_AT6 = factor(action_AT6)) 
   
 
+# usability of indicators for any action track
+use_AT_all <- df_clean %>% 
+  select(use_AT1, use_AT2, use_AT3, use_AT4, use_AT5, use_AT6) %>% 
+  
+  # convert to scores
+  mutate(use_AT1 = recode_uses_scores(use_AT1)) %>% 
+  mutate(use_AT2 = recode_uses_scores(use_AT2)) %>% 
+  mutate(use_AT3 = recode_uses_scores(use_AT3)) %>% 
+  mutate(use_AT4 = recode_uses_scores(use_AT4)) %>% 
+  mutate(use_AT5 = recode_uses_scores(use_AT5)) %>% 
+  mutate(use_AT6 = recode_uses_scores(use_AT6)) %>%
+  
+  # calculate maximum score
+  rowwise() %>% 
+  mutate(use_ATs = max(use_AT1, use_AT2, use_AT3, use_AT4, use_AT5, use_AT6)) %>% 
+  
+  # convert to factor
+  mutate(use_ATs = as.factor(as.character(use_ATs))) %>% 
+  
+  # rename factor
+  mutate(use_ATs = fct_recode(use_ATs, 
+                                  "not usable" = "0",
+                                  "usable after adaptation" = "1",
+                                  "directly usable" = "2"))
+  
+# merge with clean dataset
+df_clean$use_ATs = use_AT_all$use_ATs
+
+  
 # simplify dataset 
 df_simple <- df_clean %>% 
   
@@ -136,9 +172,9 @@ df_simple <- df_clean %>%
          use_AT3 = recode_uses(use_AT3),
          use_AT4 = recode_uses(use_AT4),
          use_AT5 = recode_uses(use_AT5),
-         use_AT6 = recode_uses(use_AT6))
+         use_AT6 = recode_uses(use_AT6),
+         use_ATs = recode_uses(use_ATs)) 
   
-
 
 #### calculate statistics #### 
 
@@ -302,14 +338,15 @@ df_long_link <- df_clean %>%
 
 # prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by indicator categories 
 
-df_long_cat <- df_simple %>% 
+df_long_cat <- df_clean %>% 
   select(category,
          use_AT1,
          use_AT2,
          use_AT3,
          use_AT4,
          use_AT5,
-         use_AT6) %>% 
+         use_AT6,
+         use_ATs) %>% 
   
   # long format needed since indicators are associated with multiple action tracks
   pivot_longer(cols = !category,
@@ -323,7 +360,8 @@ df_long_cat <- df_simple %>%
                                    "Action track 3" = "use_AT3",
                                    "Action track 4" = "use_AT4",
                                    "Action track 5" = "use_AT5",
-                                   "Action track 6" = "use_AT6")) %>% 
+                                   "Action track 6" = "use_AT6",
+                                   "All action tracks" = "use_ATs")) %>% 
   
   # rename categories
   mutate(category = fct_recode(category, 
@@ -335,7 +373,7 @@ df_long_cat <- df_simple %>%
 
 # prepare dataset to analyse the usability of indicators for monitoring OH actions, grouped by GAP categories 
 
-df_long_GAP <- df_simple %>% 
+df_long_GAP <- df_clean %>% 
   select(GAP,
          use_AT1,
          use_AT2,
@@ -413,29 +451,54 @@ ggsave("figures/link_health.png",
 #### Figure: bar plot (proportion of usable indicators per action track)
 
 # total number of indicators
-df_total_all <- df_long_cat %>% 
+n_all <- df_long_cat %>% 
   group_by(action_track) %>% 
-  count()
+  count() %>% 
+  rename(tot = n)
 
-# total number of usable indicators for each action track
-df_total_usable <- df_long_cat %>%  
-  filter(usability == "usable") %>% 
+# total number of directly usable indicators for each action track
+n_direct <- df_long_cat %>%  
+  filter(usability == "directly usable") %>% 
   group_by(action_track) %>% 
-  count()
+  count() %>% 
+  rename(n_direct = n)
+
+# total number of indicators usable after adaptation for each action track
+n_adapt <- df_long_cat %>%  
+  filter(usability == "usable after adaptation") %>% 
+  group_by(action_track) %>% 
+  count() %>% 
+  rename(n_adapt = n)
+
+
+# merge data frames
+df_usability <- n_all %>%
+  left_join(n_direct, by = "action_track") %>% 
+  left_join(n_adapt, by = "action_track") 
+
+# total number of usable indicators
+df_usability <- df_usability %>% 
+  mutate(n_usable = n_direct + n_adapt)
 
 # proportion of usable indicators for each action track
-df_prop_usable <- df_total_usable %>% 
-  mutate(prop = n / num_ind * 100)
-
+df_usability <- df_usability %>% 
+  mutate(prop_direct = n_direct / tot * 100) %>% # directly usable
+  mutate(prop_adapt = n_adapt / tot * 100) %>%  # usable after adaptation
+  mutate(prop_usable = n_usable / tot * 100) # both
+  
 
 ggplot() + 
   
   # add grey bars representing the total number of indicators
-  geom_bar(data = df_total_all, aes(y=n, x=action_track), fill = "grey", alpha = 0.6,
+  geom_bar(data = df_usability, aes(y=tot, x=action_track), fill = "grey", alpha = 0.1,
            position="stack", stat="identity") +
   
   # add color bars representing the number of usable indicators for each action track
-  geom_bar(data = df_total_usable, aes(fill=action_track, y=n, x=action_track), 
+  geom_bar(data = df_usability, aes(fill=action_track, y=n_usable, x=action_track), 
+           alpha=0.4, position="stack", stat="identity") +
+  
+  # add color bars representing the number of directly usable indicators for each action track
+  geom_bar(data = df_usability, aes(fill=action_track, y=n_direct, x=action_track), 
            position="stack", stat="identity") +
   
   # flip axes
@@ -443,7 +506,7 @@ ggplot() +
   
   # format x label 
   scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 10),
-                   limits = rev(levels(df_total_all$action_track))) +
+                   limits = rev(levels(df_long_cat$action_track))) +
   
   # format y label
   scale_y_continuous(limits = c(0,210), expand = c(0, 0)) +
@@ -467,17 +530,17 @@ ggplot() +
   ylab("Number of indicators") +
   
   # add icons
-  add_phylopic(img = AT1_img, x = 6, y = 115, ysize = 0.7) +
-  add_phylopic(img = AT2_img, x = 5, y = 110, ysize = 0.7) +
-  add_phylopic(img = AT3_img, x = 4, y = 85, ysize = 0.4) +
-  add_phylopic(img = AT4_img, x = 3, y = 123, ysize = 0.7) +
-  add_phylopic(img = AT5_img, x = 2, y = 50, ysize = 0.6) +
-  add_phylopic(img = AT6_img, x = 1, y = 173, ysize = 0.7) +
+  add_phylopic(img = AT1_img, x = 7, y = 115, ysize = 0.7) +
+  add_phylopic(img = AT2_img, x = 6, y = 110, ysize = 0.7) +
+  add_phylopic(img = AT3_img, x = 5, y = 85, ysize = 0.4) +
+  add_phylopic(img = AT4_img, x = 4, y = 123, ysize = 0.7) +
+  add_phylopic(img = AT5_img, x = 3, y = 50, ysize = 0.6) +
+  add_phylopic(img = AT6_img, x = 2, y = 173, ysize = 0.7) +
   
   # add proportions of usable indicators for each action track
-  annotate("text", x = c(6, 5, 4, 3, 2, 1), 
-           y = c(130, 125, 103, 138, 65, 188),
-           label = paste0(round(df_prop_usable$prop, 0), "%"))
+  annotate("text", x = c(7, 6, 5, 4, 3, 2, 1), 
+           y = c(130, 125, 103, 138, 65, 188, 195),
+           label = paste0(round(df_usability$prop_usable, 0), "%"))
 
 # save figure
 ggsave("figures/usability_all.png",
@@ -615,4 +678,3 @@ ggplot() +
 ggsave("figures/usability_GAP.png",
        width = 8, height = 6, dpi = 800, 
        units = "in", device='png')
-
