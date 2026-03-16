@@ -411,7 +411,7 @@ df_long_GAP <- df_clean %>%
 
 df_total_link <- df_long_link %>% 
   group_by(group, link) %>% 
-  count()
+  count() 
 
 
 ggplot() + 
@@ -426,7 +426,7 @@ ggplot() +
   
   # format x label 
   scale_x_discrete(labels = function(x) stringr::str_wrap(x, width = 10),
-                   limits = rev(levels(df_total_link$group))) +
+                   limits = levels(df_total_link$group)) +
   
   # change color
   scale_fill_brewer(palette = "Spectral") +
