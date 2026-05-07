@@ -42,7 +42,7 @@ Variables are described in the following tables.
 
 | Variable | Description |
 | -------- | ------- |
-| `AT1_health_systems_usability` | Usability of the indicator for monitoring the first Action Track of the One Health Joint Plan of Action.‡ |
+| `AT1_health_systems_usability` | Usability of the indicator for monitoring the first Action Track of the [One Health Joint Plan of Action](https://www.who.int/publications/i/item/9789240059139).‡ |
 | `AT1_health_systems_action` | The main action that the indicator can monitor in the first action track, if any. |
 | `AT2_pandemic_zoonoses_usability` | Usability of the indicator for monitoring the second Action Track of the One Health Joint Plan of Action.‡ |
 | `AT2_pandemic_zoonoses_action` | The main action that the indicator can monitor in the second action track, if any. |
