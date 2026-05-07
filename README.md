@@ -7,13 +7,10 @@ Data and code repository for the manuscript entitled "Towards the monitoring of 
 - `data/`: contains the dataset and its description
 - `figures/`: contains all figures produced by the script and included in the manuscript
 - `images/`: contains the logo of the One Health Joint Plan of Actions that is added to certain figures
-MIT License
-- `.gitignore`: specifies the files ignored by Git in this project
-- `LICENSE`: specifies the conditions to use and distribute this project
 
-### Figures folder
+### Figures
 
-The script `code/data_analysis_and_visualization.R` produces the following figures:
+The R script produces the following figures:
 
 - `figures/link_health.png`: Number of indicators of the Kunming-Montreal Global Biodiversity Framework linked with human, animal, plant, and environmental health (Figure 1)
 - `figures/usability_all.png`: Number of indicators of the Kunming-Montreal Global Biodiversity Framework that can be used to monitor at least one action in each of the action tracks of the One Health Joint Plan of Action (Figure 2)
