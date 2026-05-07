@@ -8,9 +8,9 @@ Variables are described in the following tables.
 | Variable | Description |
 | -------- | ------- |
 | `indicator_label` | Label of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
-| `indicator_name` | Name of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
-| `indicator_category` | Main category (headline, binary, component or complementary) of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf).* |
-| `indicator_target` | Main goal or target monitored by the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
+| `indicator_name` | Name of the indicator, as provided in CBD/COP/16/L.26/Rev.1. |
+| `indicator_category` | Main category (headline, binary, component or complementary) of the indicator, as provided in CBD/COP/16/L.26/Rev.1.* |
+| `indicator_target` | Main goal or target monitored by the indicator, as provided in CBD/COP/16/L.26/Rev.1. |
 | `indicator_GAP_category` | Category of the [Global Action Plan on Biodiversity and Health](https://www.cbd.int/health/GAP.shtml) (CBD/COP/DEC/16/19 - Annex III B) in which the indicator falls.** |
 
 *As set out in [CBD/COP/DEC/15/5](https://www.cbd.int/doc/decisions/cop-15/cop-15-dec-05-en.pdf):
@@ -31,26 +31,26 @@ Variables are described in the following tables.
 | `connection_environmnental_health` | Strength of the link between the indicator and environmental health.† |
 
 † An indicator can be:
-- Directly connected to health if it has a direct causal relationship with health (e.g., they directly measure the state or a risk factor of health).
+- Directly connected to health if it has a direct causal relationship with health (e.g., if it directly measures the state of health or a risk factor of health problems).
 - Indirectly connected to health if it is linked to health via a single intermediary factor.
 - Potentially connected to health if it is linked to health via two or more intermediary factors, or if it is likely connected to health but we are not sure through which mechanism.
-- Not connected to health if it has no connection with health, or if the connection is far-fetched, unlikely, or absent.
+- Not connected to health if the connection is far-fetched, unlikely, or absent.
 
 ## Evaluation of the usability of KM-GBF indicators for monitoring One Health action tracks
 
 | Variable | Description |
 | -------- | ------- |
-| `AT1_health_systems_usability` | Usability of the indicator for monitoring the first Action Track of the [One Health Joint Plan of Action](https://www.who.int/publications/i/item/9789240059139).‡ |
+| `AT1_health_systems_usability` | Usability of the indicator for monitoring the first Action Track of the [One Health Joint Plan of Actions](https://www.who.int/publications/i/item/9789240059139).‡ |
 | `AT1_health_systems_action` | The main action that the indicator can monitor in the first action track, if any. |
-| `AT2_pandemic_zoonoses_usability` | Usability of the indicator for monitoring the second Action Track of the One Health Joint Plan of Action.‡ |
+| `AT2_pandemic_zoonoses_usability` | Usability of the indicator for monitoring the second Action Track of the One Health Joint Plan of Actions.‡ |
 | `AT2_pandemic_zoonoses_action` | The main action that the indicator can monitor in the second action track, if any. |
-| `AT3_endemic_zoonoses_usability` | Usability of the indicator for monitoring the third Action Track of the One Health Joint Plan of Action.‡ |
+| `AT3_endemic_zoonoses_usability` | Usability of the indicator for monitoring the third Action Track of the One Health Joint Plan of Actions.‡ |
 | `AT3_endemic_zoonoses_action` | The main action that the indicator can monitor in the third action track, if any. |
-| `AT4_food_safety_usability` | Usability of the indicator for monitoring the fourth Action Track of the One Health Joint Plan of Action.‡ |
+| `AT4_food_safety_usability` | Usability of the indicator for monitoring the fourth Action Track of the One Health Joint Plan of Actions.‡ |
 | `AT4_food_safety_action` | The main action that the indicator can monitor in the fourth action track, if any. |
-| `AT5_antimicrobial_resistance_usability` | Usability of the indicator for monitoring the fifth Action Track of the One Health Joint Plan of Action.‡ |
+| `AT5_antimicrobial_resistance_usability` | Usability of the indicator for monitoring the fifth Action Track of the One Health Joint Plan of Actions.‡ |
 | `AT5_antimicrobial_resistance_action` | The main action that the indicator can monitor in the fifth action track, if any. |
-| `AT6_environment_usability` | Usability of the indicator for monitoring the sixth Action Track of the One Health Joint Plan of Action.‡ |
+| `AT6_environment_usability` | Usability of the indicator for monitoring the sixth Action Track of the One Health Joint Plan of Actions.‡ |
 | `AT6_environment_action` | The main action that the indicator can monitor in the sixth action track, if any. |
 
 ‡ An indicator can be: 
