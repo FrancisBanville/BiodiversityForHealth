@@ -1,9 +1,8 @@
 # Description of the dataset
 
-The dataset contains the names and characteristics of the indicators of the Kunming-Montreal Global Biodiversity Framework (KM-GBF) monitoring framework, as well as our evaluation of their connection to human, animal, plant, and environmental health and their usability for monitoring One Health action tracks. 
+The dataset contains the names and characteristics of the indicators of the Kunming-Montreal Global Biodiversity Framework (KM-GBF) monitoring framework, as well as our qualitative evaluation of their connection to human, animal, plant, and environmental health and of their usability for monitoring One Health action tracks. Each indicator was evaluated by at least two independent researchers, and a consensus was reached where there were initial disagreements. 
 
-Variables are described in the following tables. 
-
+Variables are described in the following tables.
 
 ### Names and characteristics of the indicators
 
