@@ -9,20 +9,11 @@ Variables are described in the following tables.
 
 | Variable | Description |
 | -------- | ------- |
-| `indicator_label` | Label of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf) (February 2025). |
-| `indicator_name` | Name of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf) (February 2025). |
-| `indicator_category` | Main category (headline, binary, component or complementary) of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf) (February 2025). |
-| `indicator_target` | Main goal or target monitored by the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf) (February 2025). |
+| `indicator_label` | Label of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
+| `indicator_name` | Name of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
+| `indicator_category` | Main category (headline, binary, component or complementary) of the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
+| `indicator_target` | Main goal or target monitored by the indicator, as provided in [CBD/COP/16/L.26/Rev.1](https://www.cbd.int/doc/c/1e13/f20d/81cd8447744640bbd21e008f/cop-16-l-26-rev1-en.pdf). |
 | `indicator_GAP_category` | Category of the [Global Action Plan on Biodiversity and Health](https://www.cbd.int/health/GAP.shtml) (CBD/COP/DEC/16/19 - Annex III B) in which the target of the indicator falls. |
-
-
-## Information about the evaluation
-
-| Variable | Description |
-| -------- | ------- |
-| `evaluator_name` | Name of the evaluator who provided comments justifying the assessment. |
-| `evaluator_flag` | Flagged indicators highlight remaining uncertainties in the assessment. |
-| `evaluator_comments` | Justifications and comments provided by an evaluator. |
 
 
 ## Evaluation of the link between KM-GBF indicators and health
