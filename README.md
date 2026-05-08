@@ -1,6 +1,6 @@
 # BiodiversityForHealth
 
-Data and code repository for the manuscript entitled "Towards the monitoring of One Health action tracks using the indicators of the Kunming-Montreal Global Biodiversity Framework" (Banville et al.).
+Data and code repository for the manuscript entitled "The Global Biodiversity Framework supports global assessment of One Health actions" (Banville et al.).
 
 ## Folder organization
 - `code/`: contains the R script that imports, cleans, and analyzes the data and generates the figures
